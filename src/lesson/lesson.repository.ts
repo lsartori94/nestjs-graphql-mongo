@@ -31,11 +31,9 @@ export class LessonRepository extends Repository<Lesson> {
     lesson.endDate = endDate;
 
     try {
-      await this.save(lesson);
+      return this.save(lesson);
     } catch (error) {
 
     }
-
-    return lesson;
   }
 }

@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryColumn, ObjectID, ObjectIdColumn } from "typeorm";
+import { Entity, Column, PrimaryColumn, ObjectIdColumn } from "typeorm";
 
 @Entity()
 export class Lesson {
