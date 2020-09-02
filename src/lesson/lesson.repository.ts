@@ -1,12 +1,28 @@
 import { Repository, EntityRepository } from "typeorm";
 import { Lesson } from "./lesson.entity";
-import { CreateLessonDto } from "./dto/create-lesson.dto";
+import { CreateLessonInput } from "./lesson.input";
 import { v4 as uuid } from 'uuid';
 
 @EntityRepository(Lesson)
 export class LessonRepository extends Repository<Lesson> {
-  async createLesson(createLessonDto: CreateLessonDto): Promise<Lesson> {
-    const { name, startDate, endDate} = createLessonDto;
+  async getLessons(): Promise<Lesson[]> {
+    try {
+      return this.find();
+    } catch (error) {
+
+    }
+  }
+
+  async getLesson(id: string): Promise<Lesson> {
+    try {
+      return this.findOne({ id });
+    } catch(error) {
+
+    }
+  }
+
+  async createLesson(createLessonInput: CreateLessonInput): Promise<Lesson> {
+    const { name, startDate, endDate} = createLessonInput;
 
     const lesson = this.create();
     lesson.id = uuid();
