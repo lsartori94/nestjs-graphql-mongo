@@ -22,4 +22,8 @@ export class StudentService {
   async createLesson(createStudentInput: CreateStudentInput): Promise<Student> {
     return this.studentRepository.createStudent(createStudentInput);
   }
+
+  async getManyStudents(studentIds: string[]): Promise<Student[]> {
+    return this.studentRepository.getManyStudents(studentIds);
+  }
 }
